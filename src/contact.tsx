@@ -173,7 +173,7 @@ const Contact = () => {
                 Call Us
               </h4>
               <p className=" text-primaryText leading-[16px]">
-                +234-818-926-8533
+                +234-909-636-2524
               </p>
             </div>
           </div>
@@ -184,7 +184,7 @@ const Contact = () => {
                 Mail Us
               </h4>
               <p className=" text-primaryText leading-[16px]">
-                support@counterflowteq.com
+                operations@ovanixltd.com
               </p>
             </div>
           </div>
@@ -195,8 +195,8 @@ const Contact = () => {
                 Address
               </h4>
               <p className=" text-primaryText leading-normal">
-                1 Platinum Street, Platinum Rows Estate, Lekki Penninsula II,
-                Lekki
+                1 Off Igode/Ilu-Oloye Road, Phase 3, Ilu-Oloye Maya, Ikorodu,
+                Lagos
               </p>
             </div>
           </div>
