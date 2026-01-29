@@ -1,54 +1,32 @@
-import { Route, Routes } from 'react-router-dom';
-import Navbar from './navbar';
-import Homepage from './homepage';
-import Footer from './footer';
-// import About from './about';
-import Contact from './contact';
-// import Billing from './billing';
-import PrivacyPolicy from './terms-and-privacy';
-import ProductsPage from './products-page';
-// import BlogOne from './blog-one';
-// import BlogTwo from './blog-two';
-// import BlogThree from './blog-three';
-import { useState } from 'react';
-import { Book, books } from './utils';
-// import Blog from './Blog';
-// import Donation from './donation';
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./navbar";
+import Homepage from "./homepage";
+import Footer from "./footer";
+import Contact from "./contact";
+import PrivacyPage from "./pages/PrivacyPage";
+import RefundReturnPage from "./pages/RefundReturnPage";
+import ProductsPage from "./pages/ProductsPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import { Toast } from "./components/Toast";
 
 function App() {
-  const [, setSelectedBook] = useState<Book>(books[1]);
-
   return (
     <>
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Homepage />
-              <ProductsPage setSelectedBook={setSelectedBook} />
-            </>
-          }
-        />
-        {/* <Route path="/about-us" element={<About />} /> */}
+        <Route path="/" element={<Homepage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:id" element={<ProductDetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/contact-us" element={<Contact />} />
-        {/* <Route path="/blog" element={<Blog />} /> */}
-        {/* <Route
-          path="/billing"
-          element={<Billing selectedBook={selectedBook} />}
-        />
-        <Route path="/donation" element={<Donation />} /> */}
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        {/* <Route
-          path="/products"
-          element={<ProductsPage setSelectedBook={setSelectedBook} />}
-        /> */}
-        {/* <Route path="/blog/one" element={<BlogOne />} />
-        <Route path="/blog/two" element={<BlogTwo />} />
-        <Route path="/blog/three" element={<BlogThree />} /> */}
+        <Route path="/privacy-policy" element={<PrivacyPage />} />
+        <Route path="/refund-return-policy" element={<RefundReturnPage />} />
       </Routes>
       <Footer />
+      <Toast />
     </>
   );
 }

@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import { useModals } from './useModal';
-import ShowContactModal from './show-contact';
-import phoneIcon from './assets/phone.png';
-import mailIcon from './assets/mail.png';
-import locationIcon from './assets/location.png';
+import { useEffect, useState } from "react";
+import { useModals } from "./useModal";
+import ShowContactModal from "./show-contact";
+import phoneIcon from "./assets/phone.png";
+import mailIcon from "./assets/mail.png";
+import locationIcon from "./assets/location.png";
 
 const Contact = () => {
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }, []);
 
@@ -18,11 +18,11 @@ const Contact = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   // State to manage form field values
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const checkFormValidity = () => {
@@ -62,10 +62,10 @@ const Contact = () => {
     // Add your form submission logic here
   };
 
-  const showContact = useModals(['showContact']);
+  const showContact = useModals(["showContact"]);
 
   function toggleShowContactModal() {
-    showContact.toggleModal('showContact');
+    showContact.toggleModal("showContact");
   }
 
   return (
@@ -184,7 +184,7 @@ const Contact = () => {
                 Mail Us
               </h4>
               <p className=" text-primaryText leading-[16px]">
-                operations@ovanixltd.com
+                Operations@ovanixltd.com
               </p>
             </div>
           </div>

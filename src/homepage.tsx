@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // import { Faqs } from './utils';
 import {
   useEffect,
   // useState
-} from 'react';
+} from "react";
 
 const Homepage = () => {
   // const [showFaq, setShowFaq] = useState(false);
@@ -18,7 +18,7 @@ const Homepage = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }, []);
 
@@ -37,7 +37,7 @@ const Homepage = () => {
           </p>
 
           <Link
-            to="#products"
+            to="/products"
             className="text-base font-medium text-white bg-primary hover:bg-primaryHover rounded-md px-7 md:px-12 py-4 flex items-center justify-center gap-3"
           >
             Explore Products

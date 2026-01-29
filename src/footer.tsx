@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import logo from '../src/assets/logo_white.svg';
+import { Link } from "react-router-dom";
+import logo from "../src/assets/logo_white.svg";
 
 const Footer = () => {
   return (
@@ -29,7 +29,7 @@ const Footer = () => {
             About
           </Link> */}
           <Link
-            to="/#products"
+            to="/products"
             className="text-[14px] leading-[24px] font-medium text-white cursor-pointer"
           >
             Products
@@ -41,10 +41,16 @@ const Footer = () => {
             Contact
           </Link>
           <Link
-            to="/"
+            to="/privacy-policy"
             className="text-[14px] leading-[24px] font-medium text-white cursor-pointer"
           >
-            Terms & Privacy
+            Privacy Policy
+          </Link>
+          <Link
+            to="/refund-return-policy"
+            className="text-[14px] leading-[24px] font-medium text-white cursor-pointer"
+          >
+            Refund & Return
           </Link>
         </div>
         <p className="text-[12px] leading-[24px] text-center text-orange-100/50">

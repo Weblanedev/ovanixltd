@@ -2,9 +2,10 @@ import { MouseEventHandler, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useModals } from "./useModal";
 import ShowOrderModal from "./show-order";
-import { Book } from "./utils";
+import type { Product } from "./types";
 
-const Billing = ({ selectedBook }: { selectedBook: Book }) => {
+/** Legacy billing page (not in current routes). Uses Product for type compatibility. */
+const Billing = ({ selectedBook }: { selectedBook: Product }) => {
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -14,10 +15,7 @@ const Billing = ({ selectedBook }: { selectedBook: Book }) => {
   }, []);
 
   function add100Dollars(input: string): string {
-    // Extracting the numerical part of the input string
-    const numericalPart = parseFloat(input.replace(/[^\d.]/g, ""));
-
-    // Adding 100 to the numerical part
+    const numericalPart = parseFloat(input.replace(/[^\d.]/g, "")) || 0;
     const result = numericalPart + 20;
 
     // Formatting the result back to the original format
@@ -51,7 +49,7 @@ const Billing = ({ selectedBook }: { selectedBook: Book }) => {
 
   // Event handlers to update form field values and check validity
   const handleCardHolderNameChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCardHolderName(e.target.value);
   };
@@ -160,21 +158,21 @@ const Billing = ({ selectedBook }: { selectedBook: Book }) => {
                 {selectedBook?.title}
               </h4>
               <h4 className="text-[#161616] font-medium text-[16px]">
-                {selectedBook?.price}
+                {selectedBook?.price != null
+                  ? `$${selectedBook.price.toFixed(2)}`
+                  : ""}
               </h4>
             </div>
             <div className="flex items-center justify-between py-[15px] w-full border-b">
               <h4 className="text-[#707070] uppercase font-medium text-[13px]">
                 Processing Fee
               </h4>
-              <h4 className="text-[#161616] font-medium text-[16px]">
-                $20.00
-              </h4>
+              <h4 className="text-[#161616] font-medium text-[16px]">$20.00</h4>
             </div>
             <div className="flex items-center justify-between py-[15px] w-full border-b">
               <h4 className="text-[#707070] font-medium text-[13px]">TOTAL</h4>
               <h4 className="text-[#a20401] font-medium text-[16px]">
-                {add100Dollars(selectedBook.price)}
+                {add100Dollars(String(selectedBook.price))}
               </h4>
             </div>
           </div>
@@ -337,10 +335,7 @@ const Billing = ({ selectedBook }: { selectedBook: Book }) => {
               Your personal data will be used to process your order, support
               your experience throughout this website, and for other purposes
               described in our{" "}
-              <Link
-                to="/"
-                className="text-[#a20401] cursor-pointer"
-              >
+              <Link to="/" className="text-[#a20401] cursor-pointer">
                 privacy policy.
               </Link>
             </p>
